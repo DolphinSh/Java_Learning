@@ -22,4 +22,23 @@
     <select id="selectUserById" parameterType="_int" resultType="com.dolphin.pojo.Users">
         select * from users where userid = #{onetype}
     </select>
+    <!--添加用户-->
+    <insert id="insertUser">
+        insert into users values(default ,#{username},#{usersex})
+    </insert>
+
+    <!--预更新用户的查询-->
+    <select id="selectUserById2" resultType="com.dolphin.pojo.Users">
+        select * from  users where userid = #{userid}
+    </select>
+
+    <!--更新用户操作-->
+    <update id="updateUsersById">
+        update users set username = #{username},usersex = #{usersex} where userid = #{userid}
+    </update>
+
+    <!--根据用户ID删除用户-->
+    <delete id="deleteUsersById">
+        delete from users where userid = #{userid}
+    </delete>
 </mapper>
