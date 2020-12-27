@@ -19,4 +19,11 @@ public class UserDaoITest {
             System.out.println(u.getUserid()+"\t"+u.getUsername());
         }
     }
+
+    @Test
+    public void selectUserById() throws IOException {
+        UserDao userDao = new UserDaoImpl();
+        Users u = userDao.selectUserById(1);
+        System.out.println(u.getUserid()+"\t"+u.getUsername());
+    }
 }

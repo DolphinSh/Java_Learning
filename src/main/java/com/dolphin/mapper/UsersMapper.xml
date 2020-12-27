@@ -7,4 +7,19 @@
     <select id="selectUsersAll" resultType="com.dolphin.pojo.Users">
          select * from users
     </select>
+    <!--根据用户ID查询用户
+        parameterType 参数的类型，在Mybatis中TypeHandler对参数的类型进行处理
+        resultType 映射实体类型
+        JDBC 与 Mybatis 占位符的不同
+            JDBC 通过?进行绑定占位符
+            Mybatis #{} 和 ${}
+                绑定的参数个数，一个随便写内容
+                多个，需要具体制定
+                #{} 预编译语句，防止SQL注入
+                ${} 存在SQl注入，底层为简单的文本替换
+                使用:${} 表名 列名 #{} 具体字段
+    -->
+    <select id="selectUserById" parameterType="_int" resultType="com.dolphin.pojo.Users">
+        select * from users where userid = #{onetype}
+    </select>
 </mapper>
